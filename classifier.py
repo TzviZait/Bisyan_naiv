@@ -28,5 +28,6 @@ class Classifier:
         return a
     @staticmethod
     def data_classifier():
-         data = input("enter your data:")
-         return data.split()
+         data = input("enter your spsific data:")
+         data = data.split(',')
+         return data
