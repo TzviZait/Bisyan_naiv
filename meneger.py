@@ -25,6 +25,7 @@ class Meneger:
 
             if chois == "2":
                 data = Geting_Data.get_data()
+                print(data)
                 uniq = Geting_Data.get_uniq()
                 a = Precent.result_prcent(data,uniq)
                 print(a)

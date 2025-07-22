@@ -2,6 +2,7 @@ from typing import Union
 
 from fastapi import FastAPI
 
+from geting_data import Geting_Data
 from precent import Precent
 
 app = FastAPI()
@@ -14,5 +15,5 @@ def read_root():
 
 @app.get("/precent")
 def precent():
-    return Precent.result_prcent('mushroom.csv', 'class')
+    return Precent.result_prcent(Geting_Data.get_data("buy_computer_data.csv"), 'Buy_Computer')
 

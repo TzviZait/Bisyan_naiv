@@ -9,7 +9,6 @@ class Precent:
     @staticmethod
     def result_prcent(file_csv,uniq):
         true = 0
-        # data = pd.read_csv(file_csv)
         data = file_csv
         test_data = data.drop(uniq, axis=1)
         count = len(data)
