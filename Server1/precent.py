@@ -1,16 +1,16 @@
 import pandas as pd
 
-from classifier import Classifier
+from Server2.classifier import Classifier
 
-from geting_data import Geting_Data
+from Server1.train_bisean_naiv import Geting_Data
 
 class Precent:
 
     @staticmethod
     def result_prcent(file_csv,uniq):
         true = 0
-        # data = pd.read_csv(file_csv)
-        data = file_csv
+        data = pd.read_csv(file_csv)
+        # data = file_csv
         test_data = data.drop(uniq, axis=1)
         count = len(data)
         dic_data = Geting_Data.return_data(data, uniq)
