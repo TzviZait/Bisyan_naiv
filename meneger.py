@@ -1,37 +1,26 @@
-from geting_data import Geting_Data
-from classifier import Classifier
-from precent import Precent
+import uvicorn
+import webbrowser
+import time
+from multiprocessing import Process
 
 
-class Meneger:
+def run_trainer_server():
+    print("Starting server 1 on http://127.0.0.1:8000 ...")
+    uvicorn.run("api:app", host="0.0.0.0", port=8000, reload=False)
 
-    @staticmethod
-    def print_meneger():
-        run = 1
-        while run:
-            chois = input("What do you want to do?\n"
-                "1.to sey classifier\n"
-                "2.to sey precent\n"
-                "3.to exit"
-                "enter your chois: ")
-            if chois == "1":
-                data = Geting_Data.get_data()
-                uniq = Geting_Data.get_uniq()
-                sort_data = Geting_Data.return_data(data, uniq)
-                spci_data = Classifier.data_classifier()
-                d = Classifier.return_calculete(sort_data, spci_data)
-                print(d)
-                print(Classifier.print_result(d))
 
-            if chois == "2":
-                data = Geting_Data.get_data()
-                print(data)
-                uniq = Geting_Data.get_uniq()
-                a = Precent.result_prcent(data,uniq)
-                print(a)
+if __name__ == "__main__":
+    print("Launching trainer server in a separate process...")
 
-            if chois == "3":
-                run = 0
+    # הפעלת השרת בתהליך נפרד כדי לא לחסום את ההמשך
+    trainer_process = Process(target=run_trainer_server)
+    trainer_process.start()
 
-Meneger.print_meneger()
 
+    time.sleep(3)
+
+    trainer_url = "http://127.0.0.1:8000/trainer-form"
+    print(f"Trainer form is available at: {trainer_url}")
+    webbrowser.open(trainer_url)
+
+    trainer_process.join()

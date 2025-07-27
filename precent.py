@@ -2,7 +2,7 @@ import pandas as pd
 
 from classifier import Classifier
 
-from geting_data import Geting_Data
+from train_bisean_naiv import Geting_Data
 
 class Precent:
 

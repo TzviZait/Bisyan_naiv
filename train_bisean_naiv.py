@@ -5,7 +5,7 @@ class Geting_Data:
     @staticmethod
     def return_data(data,uniq):
         my_dict = {}
-
+        data = pd.read_csv(data)
         for i in data[uniq]:
             my_dict[i] = {}
             for c in [col for col in data.columns if col != uniq ]:
