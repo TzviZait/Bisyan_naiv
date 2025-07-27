@@ -37,7 +37,6 @@ class Geting_Data:
         uniq = input("enter the uniq collonm:")
         return uniq
 
-print(Geting_Data.return_data(Geting_Data.get_data("buy_computer_data.csv"),"Buy_Computer"))
 
 # import pandas as pd
 #

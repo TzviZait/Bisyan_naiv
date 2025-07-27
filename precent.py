@@ -20,4 +20,3 @@ class Precent:
                 true += 1
         return true / count * 100
 
-# print(Precent.result_prcent('mushroom.csv', 'class'))
