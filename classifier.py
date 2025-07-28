@@ -27,7 +27,6 @@ class Classifier:
         a = max(dic, key=dic.get)
         return a
     @staticmethod
-    def data_classifier():
-         data = input("enter your spsific data:")
+    def data_classifier(data):
          data = data.split(',')
          return data
