@@ -6,13 +6,12 @@ from typing import Dict, Any
 
 app = FastAPI()
 
-# משתנה גלובלי לשמירת העמודה שנבחרה
-selected_column = "Buy_Computer"  # ברירת מחדל
+selected_column = "Buy_Computer"
 
 @app.get("/trainer")
 async def trainer(column: str = Query("Buy_Computer", description="Column name for training, e.g., Buy_Computer")) -> Dict[str, Any]:
     global selected_column
-    selected_column = column  # שמור את העמודה שנבחרה
+    selected_column = column
     try:
         result = Geting_Data.return_data('Data/buy_computer_data.csv', column)
         if not result:

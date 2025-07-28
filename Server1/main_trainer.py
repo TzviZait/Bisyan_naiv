@@ -12,7 +12,6 @@ def run_trainer_server():
 if __name__ == "__main__":
     print("Launching trainer server in a separate process...")
 
-    # הפעלת השרת בתהליך נפרד כדי לא לחסום את ההמשך
     trainer_process = Process(target=run_trainer_server)
     trainer_process.start()
 

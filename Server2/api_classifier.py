@@ -12,12 +12,10 @@ app = FastAPI()
 async def classifier(features: str = Query(..., description="Comma-separated features, e.g., youth,high,desktop")):
     async with httpx.AsyncClient() as client:
         try:
-            # שלוף את העמודה שנבחרה משרת 1
             column_response = await client.get("http://running_server1:8000/get-selected-column")
             column_response.raise_for_status()
             column = column_response.json().get("column", "Buy_Computer")
 
-            # שלוף את ה-dictionary משרת 1 עם העמודה שנבחרה
             response = await client.get(f"http://running_server1:8000/trainer?column={column}")
             response.raise_for_status()
             trainer_data: Dict[str, Any] = response.json()
